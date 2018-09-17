@@ -16,8 +16,8 @@ $bobSecret = rand(1000, 10000); //b
 
 echo "------------\n";
 echo "Publicly Shared Variables: \n";
-echo "    Publicly Shared Prime: {$sharedPrime}\n";
-echo "    Publicly Shared Base:  {$sharedBase}\n";
+echo "    Alice Secret Prime: {$sharedPrime}\n";
+echo "    Alice Secret Base:  {$sharedBase}\n";
 
 $alicePublicKey = bcmod(bcpow($sharedBase, $aliceSecret), $sharedPrime);
 $bobPublicKey = bcmod(bcpow($sharedBase, $bobSecret), $sharedPrime);
@@ -31,6 +31,6 @@ $alicePrivateKey = bcmod(bcpow($bobPublicKey, $aliceSecret), $sharedPrime);
 $bobPrivateKey = bcmod(bcpow($alicePublicKey, $bobSecret),$sharedPrime);
 
 echo "------------\n";
-echo "Privately Calculated Shared Secret: \n";
+echo "Privately Calculated Secret: \n";
 echo "    Alice private key: {$alicePrivateKey}\n";
 echo "    Bob private key: {$bobPrivateKey}\n";
